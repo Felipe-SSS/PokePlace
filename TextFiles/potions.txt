@@ -1,0 +1,25 @@
+Potion
+3.0
+Just a regular potion, use it to heal a Pokémon up to 20 HP points.
+0
+20.0
+SuperPotion
+6.0
+A SuperPotion heals a bit more than a regular potion.
+1
+50.0
+HyperPotion
+13.0
+Heals a large amount of HP. This one is great!
+2
+200.0
+Max Potion
+22.0
+Here's a large one! This potion is capable of healing 100% of your Pokémon's HP.
+2
+999.0
+Full Restore
+30.0
+The best you can get, the Full Restore is able to not only heal 100% of your Pokémon's HP bul also removes all negative status effects.
+3
+999.0
