@@ -1,0 +1,8 @@
+Antidote
+This status condition healing medicine cures a Pokémon of poison.
+0
+100.0
+Awakening
+
+0
+200.0
