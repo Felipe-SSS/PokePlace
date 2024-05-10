@@ -8,7 +8,7 @@ import java.util.HashSet;
 
 public class PokeShop {
 
-    public static void main(String[] args) {
+    private static void refreshStore(){
 
         HashSet<PokeBall> pokeBalls = new HashSet<>();
         HashSet<Potion> potions = new HashSet<>();
@@ -16,10 +16,7 @@ public class PokeShop {
 
         pokeBalls = ReadFiles.getRegisteredPokeballs();
         potions = ReadFiles.getRegisteredPotions();
+        statusHealings = ReadFiles.getRegisteredStatusHealings();
 
     }
-
-
-
-
 }

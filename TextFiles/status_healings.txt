@@ -2,7 +2,29 @@ Antidote
 This status condition healing medicine cures a Pokémon of poison.
 0
 100.0
+Poison
 Awakening
-
+This status healing medicine can be used to wake a Pokémon from sleep.
 0
 200.0
+Sleep
+Paralyze Heal
+This status healing medicine can be used to cure a Pokémon from paralysis.
+1
+250.0
+Paralysis
+Burn Heal
+This status healing medicine cures a Pokémon from a burn.
+2
+300.0
+Burn
+Ice Heal
+This status healing medicine can be used to thaw a frozen Pokémon.
+2
+300.0
+Frozen
+Full Heal
+This status healing medicine can be used to cure a Pokémon of all non-volatile status conditions and confusion.
+3
+600.0
+All

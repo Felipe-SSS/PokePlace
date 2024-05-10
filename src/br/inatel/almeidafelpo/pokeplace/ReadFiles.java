@@ -2,6 +2,7 @@ package br.inatel.almeidafelpo.pokeplace;
 
 import br.inatel.almeidafelpo.pokeplace.products.pokeballs.*;
 import br.inatel.almeidafelpo.pokeplace.products.potions.*;
+import br.inatel.almeidafelpo.pokeplace.products.status_healings.*;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -141,6 +142,87 @@ public class ReadFiles {
         }
 
         return allPotions;
+    }
+
+    public static HashSet<StatusHealing> getRegisteredStatusHealings() {
+
+        HashSet<StatusHealing> allStatusHealings = new HashSet<>();
+
+        try {
+            File statusHealingsFile = new File("TextFiles/status_healings.txt");
+            Scanner fileReader = new Scanner(statusHealingsFile);
+
+            float price;
+            String description;
+            int badgeAmount;
+            String target_status;
+
+            while (fileReader.hasNextLine()) {
+                String statusHealingType = fileReader.nextLine();
+
+                switch (statusHealingType) {
+                    case "Antidote":
+                        price = fileReader.nextFloat();
+                        description = fileReader.nextLine();
+                        badgeAmount = fileReader.nextInt();
+                        target_status = fileReader.nextLine();
+                        Antidote antidote = new Antidote(price, description, badgeAmount, target_status);
+                        allStatusHealings.add(antidote);
+                        break;
+
+                    case "Awakening":
+                        price = fileReader.nextFloat();
+                        description = fileReader.nextLine();
+                        badgeAmount = fileReader.nextInt();
+                        target_status = fileReader.nextLine();
+                        Awakening awakening = new Awakening(price, description, badgeAmount, target_status);
+                        allStatusHealings.add(awakening);
+                        break;
+
+                    case "Paralyze Heal":
+                        price = fileReader.nextFloat();
+                        description = fileReader.nextLine();
+                        badgeAmount = fileReader.nextInt();
+                        target_status = fileReader.nextLine();
+                        ParalyzeHeal paralyzeHeal = new ParalyzeHeal(price, description, badgeAmount, target_status);
+                        allStatusHealings.add(paralyzeHeal);
+                        break;
+
+                    case "Burn Heal":
+                        price = fileReader.nextFloat();
+                        description = fileReader.nextLine();
+                        badgeAmount = fileReader.nextInt();
+                        target_status = fileReader.nextLine();
+                        BurnHeal burnHeal = new BurnHeal(price, description, badgeAmount, target_status);
+                        allStatusHealings.add(burnHeal);
+                        break;
+
+                    case "Ice Heal":
+                        price = fileReader.nextFloat();
+                        description = fileReader.nextLine();
+                        badgeAmount = fileReader.nextInt();
+                        target_status = fileReader.nextLine();
+                        IceHeal iceHeal = new IceHeal(price, description, badgeAmount, target_status);
+                        allStatusHealings.add(iceHeal);
+                        break;
+
+                    case "Full Heal":
+                        price = fileReader.nextFloat();
+                        description = fileReader.nextLine();
+                        badgeAmount = fileReader.nextInt();
+                        target_status = fileReader.nextLine();
+                        FullHeal fullHeal = new FullHeal(price, description, badgeAmount, target_status);
+                        allStatusHealings.add(fullHeal);
+                        break;
+                }
+            }
+            fileReader.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+
+        return allStatusHealings;
     }
 
 }
