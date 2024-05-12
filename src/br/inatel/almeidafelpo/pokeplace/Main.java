@@ -1,7 +1,8 @@
 package br.inatel.almeidafelpo.pokeplace;
 
-import br.inatel.almeidafelpo.pokeplace.colored.Colored;
 import br.inatel.almeidafelpo.pokeplace.products.pokeballs.PokeBall;
+import br.inatel.almeidafelpo.pokeplace.products.potions.Potion;
+import br.inatel.almeidafelpo.pokeplace.products.status_healings.StatusHealing;
 
 import java.util.HashSet;
 import java.util.Scanner;
@@ -10,28 +11,44 @@ public class Main {
     public static void main(String [] args){
 
         Scanner input = new Scanner(System.in);
-        HashSet<PokeBall> pokeballs = new HashSet<>();
-
-        System.out.println("Welcome to PokeMarket!!");
         System.out.println("How many badges do you have?");
         int client_badges = input.nextInt();
 
-        pokeballs = ReadFiles.getRegisteredPokeballs();
-        // falta a interface e as corzinha
-        System.out.println("Would like to buy pokeballs?");
-        System.out.println("Enter 1.");
+
+        HashSet<PokeBall> pokeBalls = ReadFiles.getRegisteredPokeballs();
+        HashSet<Potion> potions = ReadFiles.getRegisteredPotions();
+        HashSet<StatusHealing> statusHealings = ReadFiles.getRegisteredStatusHealings();
+
+
+        // nao consegui passar para a interface
+        // so comecei falta fazer o resto
+        System.out.println("What would you like to see?");
+        System.out.println("1- Pokeballs");
+        System.out.println("2- Potions");
+        System.out.println("3- Status Healing");
         int answer = input.nextInt();
+
+
         switch (answer)
         {
             case 1:
-                for(PokeBall elemento : pokeballs){
-                    elemento.showInfo(client_badges);
+                for(PokeBall elements : pokeBalls) {
+                    elements.showInfo(client_badges);
                 }
+                    break;
+            case 2:
+                for(Potion elements : potions)
+                {
+                    elements.showInfo(client_badges);
+                }
+                    break;
+            case 3:
+                for (StatusHealing elements : statusHealings)
+                {
+                    elements.showInfo(client_badges);
+                }
+                    break;
         }
-
-
-
-
-
     }
+
 }

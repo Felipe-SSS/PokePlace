@@ -14,6 +14,9 @@ public abstract class Product {
         this.badges = badges;
     }
 
+    protected Product() {
+    }
+
     public abstract void showInfo(int clientBadges);
 
     public abstract void addPurchase();
