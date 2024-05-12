@@ -1,16 +1,20 @@
 PokeBall
-2.0
+200.0
 A common PokeBall, use it to catch Pokémon!
 0
-SafariBall
-4.0
-Usable exclusively in the Safari Zone. The Safari Ball has a 1.5x catch rate modifier!
-1
+QuickBall
+1000.0
+It can be used to catch a wild Pokémon, being more likely to succeed if used at the start of the encounter.
+4
+TimerBall
+1000.0
+It can be used to catch a wild Pokémon, being more likely to succeed the longer it has been since the start of the battle.
+4
 GreatBall
-13.0
+600.0
 Has a higher catch rate than your regular PokeBall. Can be used anywhere and anytime!
 2
 UltraBall
-20.0
+1200.00
 This one has the highest catch rate of all the purchasable PokeBalls!
 3

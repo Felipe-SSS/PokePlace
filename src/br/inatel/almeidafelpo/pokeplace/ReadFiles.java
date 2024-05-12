@@ -21,46 +21,57 @@ public class ReadFiles {
 
             float price;
             String description;
-            int badges_amount;
+            int badges;
+
+            String line;
+            line = fileReader.nextLine();
 
             while (fileReader.hasNextLine()) {
-
-                switch (fileReader.nextLine()){
+                switch (line){
 
                     case "PokeBall":
-                        price = fileReader.nextFloat();
+                        price = Float.valueOf(fileReader.nextLine());
                         description = fileReader.nextLine();
-                        badges_amount = fileReader.nextInt();
-                        PokeBall pokeBall = new PokeBall(price, description, badges_amount);
+                        badges = Integer.valueOf(fileReader.nextLine());
+                        PokeBall pokeBall = new PokeBall(price, description, badges);
                         allPokeballs.add(pokeBall);
-
-                    case "SafariBall":
-                        price = fileReader.nextFloat();
+                        if(fileReader.hasNextLine())
+                        {line = fileReader.nextLine();}
+                    case "QuickBall":
+                        price = Float.valueOf(fileReader.nextLine());
                         description = fileReader.nextLine();
-                        badges_amount = fileReader.nextInt();
-                        SafariBall safariBall = new SafariBall(price, description, badges_amount);
-                        allPokeballs.add(safariBall);
+                        badges = Integer.valueOf(fileReader.nextLine());
+                        QuickBall quickBall = new QuickBall(price, description, badges);
+                        allPokeballs.add(quickBall);
+                        if(fileReader.hasNextLine())
+                        {line = fileReader.nextLine();}
 
-                    case "FastBall":
-                        price = fileReader.nextFloat();
+                    case "TimerBall":
+                        price = Float.valueOf(fileReader.nextLine());
                         description = fileReader.nextLine();
-                        badges_amount = fileReader.nextInt();
-                        FastBall fastBall = new FastBall(price, description, badges_amount);
-                        allPokeballs.add(fastBall);
+                        badges = Integer.valueOf(fileReader.nextLine());
+                        TimerBall timerBall = new TimerBall(price, description, badges);
+                        allPokeballs.add(timerBall);
+                        if(fileReader.hasNextLine())
+                        {line = fileReader.nextLine();}
 
                     case "GreatBall":
-                        price = fileReader.nextFloat();
+                        price = Float.valueOf(fileReader.nextLine());
                         description = fileReader.nextLine();
-                        badges_amount = fileReader.nextInt();
-                        GreatBall greatBall = new GreatBall(price, description, badges_amount);
+                        badges = Integer.valueOf(fileReader.nextLine());
+                        GreatBall greatBall = new GreatBall(price, description, badges);
                         allPokeballs.add(greatBall);
+                        if(fileReader.hasNextLine())
+                        {line = fileReader.nextLine();}
 
                     case "UltraBall":
-                        price = fileReader.nextFloat();
+                        price = Float.valueOf(fileReader.nextLine());
                         description = fileReader.nextLine();
-                        badges_amount = fileReader.nextInt();
-                        UltraBall ultraBall = new UltraBall(price, description, badges_amount);
+                        badges = Integer.valueOf(fileReader.nextLine());
+                        UltraBall ultraBall = new UltraBall(price, description, badges);
                         allPokeballs.add(ultraBall);
+                        if(fileReader.hasNextLine())
+                        {line = fileReader.nextLine();}
                 }
             }
             fileReader.close();

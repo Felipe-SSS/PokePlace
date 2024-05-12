@@ -34,3 +34,10 @@ coisas a fazer:
     --> Métodos publicos + encapsulamento
     --> Inteface
     --> Main
+
+READ ME
+Felpo, o seu ReadFiles nao estava funcionando para pokebollas, fui testar e nao tava compilando. Fiz alterações para que desse certo.
+Falta fazer as mesmas alterações para poções e status healing
+mas tem um probleminha ainda nesse readfiles que nao sei explicar por aqui, dps agnt tenta sulocionar junto.
+Alem disso eu sou viciada no jogo dai eu fiz alterações nos arquivos pra ficar fiel a obra (troquei a fastball e a safariball por timer e quick)
+Criei uma main para testar essas coisas de compilar e to ajeitando os metodos publicos das pokebolas

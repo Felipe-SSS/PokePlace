@@ -2,9 +2,11 @@ package br.inatel.almeidafelpo.pokeplace.products;
 
 public abstract class Product {
 
-    float price;
-    String description;
-    int badges;
+    protected float price;
+    protected String description;
+    protected int badges;
+    public int clientBadges;
+
 
     public Product(float price, String description, int badges) {
         this.price = price;
@@ -12,7 +14,7 @@ public abstract class Product {
         this.badges = badges;
     }
 
-    public abstract void showInfo();
+    public abstract void showInfo(int clientBadges);
 
     public abstract void addPurchase();
 }

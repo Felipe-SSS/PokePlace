@@ -11,7 +11,7 @@ public class StatusHealing extends Product{
     }
 
     @Override
-    public void showInfo() {
+    public void showInfo(int clientBadges) {
     }
 
     @Override
