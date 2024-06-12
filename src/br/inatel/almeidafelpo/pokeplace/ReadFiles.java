@@ -42,6 +42,7 @@ public class ReadFiles {
                         allPokeballs.add(pokeBall);
                         if(fileReader.hasNextLine())
                             break;
+
                     case "QuickBall":
                         name = "Quickball";
                         price = Float.valueOf(fileReader.nextLine());

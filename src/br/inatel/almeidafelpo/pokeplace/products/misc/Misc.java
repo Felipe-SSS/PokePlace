@@ -4,11 +4,8 @@ import br.inatel.almeidafelpo.pokeplace.products.Product;
 
 public abstract class Misc extends Product {
 
-    String name;
-
     public Misc(float price, String description, int badges, String name) {
-        super(price, description, badges);
-        this.name = name;
+        super(price, description, badges, name);
     }
 
     @Override
@@ -18,6 +15,12 @@ public abstract class Misc extends Product {
             System.out.println(index + " - " + this.name);
             System.out.println(this.description);
             System.out.println("Price: $ " + this.price);
+        }
+        else{
+            System.out.println(index + " - NOT ENOUGH BADGES YET!");
+            System.out.println("??????????");
+            System.out.println("Price: $ ????");
+            System.out.println("Ammount of badges necessary: " + this.badges);
         }
     }
 

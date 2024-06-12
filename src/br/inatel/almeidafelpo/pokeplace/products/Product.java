@@ -1,23 +1,25 @@
 package br.inatel.almeidafelpo.pokeplace.products;
 
-public abstract class Product {
+public class Product {
 
     protected float price;
     protected String description;
     protected int badges;
     public int clientBadges;
+    protected String name;
 
-
-    public Product(float price, String description, int badges) {
+    public Product(float price, String description, int badges, String name) {
         this.price = price;
         this.description = description;
         this.badges = badges;
+        this.name = name;
     }
 
-    protected Product() {
+    public void showInfo(int clientBadges, int index){
+
     }
 
-    public abstract void showInfo(int clientBadges, int index);
+    public void addPurchase(){
 
-    public abstract void addPurchase();
+    }
 }
