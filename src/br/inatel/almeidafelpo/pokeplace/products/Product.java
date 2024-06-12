@@ -17,7 +17,7 @@ public abstract class Product {
     protected Product() {
     }
 
-    public abstract void showInfo(int clientBadges);
+    public abstract void showInfo(int clientBadges, int index);
 
     public abstract void addPurchase();
 }

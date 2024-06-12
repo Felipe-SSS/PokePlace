@@ -10,10 +10,10 @@ public class PokeBall extends Product {
         this.name= name;
     }
     @Override
-    public void showInfo(int clientBadges) {
-        if ((clientBadges >=this.badges) && (clientBadges <= 8))
+    public void showInfo(int clientBadges, int index) {
+        if ((clientBadges >= this.badges) && (clientBadges <= 8))
         {
-            System.out.println(this.name);
+            System.out.println(index + " - " + this.name);
             System.out.println(this.description);
             System.out.println("Price: $ " + this.price);
         }

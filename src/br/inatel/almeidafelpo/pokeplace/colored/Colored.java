@@ -27,7 +27,8 @@ public class Colored {
 
     // Print the colored text w/o background
     public void colorPrint(String textColor, String text) {
-        System.out.println(textColor + text + ANSI_RESET);
+        String finalTextColor = resolveColor(textColor);
+        System.out.println(finalTextColor + text + ANSI_RESET);
     }
 
     // Print the colored text with colored background

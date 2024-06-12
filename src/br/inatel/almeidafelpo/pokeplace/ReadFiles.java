@@ -1,5 +1,8 @@
 package br.inatel.almeidafelpo.pokeplace;
 
+import br.inatel.almeidafelpo.pokeplace.products.misc.MaxRevive;
+import br.inatel.almeidafelpo.pokeplace.products.misc.Misc;
+import br.inatel.almeidafelpo.pokeplace.products.misc.Revive;
 import br.inatel.almeidafelpo.pokeplace.products.pokeballs.*;
 import br.inatel.almeidafelpo.pokeplace.products.potions.*;
 import br.inatel.almeidafelpo.pokeplace.products.status_healings.*;
@@ -254,6 +257,57 @@ public class ReadFiles {
         }
 
         return allStatusHealings;
+    }
+
+    public static HashSet<Misc> getRegisteredMisc(){
+
+        HashSet<Misc> allMisc = new HashSet<>();
+
+        try {
+
+            File miscFile = new File("TextFiles/misc.txt");
+            Scanner fileReader = new Scanner(miscFile);
+
+            float price;
+            String description;
+            int badges;
+            String name;
+
+
+            while (fileReader.hasNextLine()) {
+                String line = fileReader.nextLine();
+                switch (line){
+
+                    case "Revive":
+                        name = "Revive";
+                        price = Float.valueOf(fileReader.nextLine());
+                        description = fileReader.nextLine();
+                        badges = Integer.valueOf(fileReader.nextLine());
+                        Revive revive = new Revive(price, description, badges, name);
+                        allMisc.add(revive);
+
+                        if(fileReader.hasNextLine())
+                            break;
+
+                    case "MaxRevive":
+                        name = "MaxRevive";
+                        price = Float.valueOf(fileReader.nextLine());
+                        description = fileReader.nextLine();
+                        badges = Integer.valueOf(fileReader.nextLine());
+                        MaxRevive maxRevive = new MaxRevive(price, description, badges,name);
+                        allMisc.add(maxRevive);
+
+                        if(fileReader.hasNextLine())
+                            break;
+                }
+            }
+            fileReader.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+
+        return allMisc;
     }
 
 }

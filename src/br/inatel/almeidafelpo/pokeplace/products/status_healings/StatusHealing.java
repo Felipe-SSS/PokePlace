@@ -1,7 +1,7 @@
 package br.inatel.almeidafelpo.pokeplace.products.status_healings;
 import br.inatel.almeidafelpo.pokeplace.products.Product;
 
-public class StatusHealing extends Product{
+public abstract class StatusHealing extends Product{
 
     String target_status;
     String name;
@@ -13,10 +13,10 @@ public class StatusHealing extends Product{
     }
 
     @Override
-    public void showInfo(int clientBadges) {
+    public void showInfo(int clientBadges, int index) {
         if ((clientBadges >=this.badges) && (clientBadges <= 8))
         {
-            System.out.println(this.name);
+            System.out.println(index + " - " + this.name);
             System.out.println(this.description);
             System.out.println("Price: $ " + this.price);
             System.out.println("Neutralized effect: " + this.target_status);

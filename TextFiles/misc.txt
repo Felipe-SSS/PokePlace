@@ -1,0 +1,8 @@
+Revive
+600.0
+Use this to revive a fainted Pokemón!
+1
+MaxRevive
+1500.0
+Works similar to the regular Revive, but the Pokemón comes back with full HP!
+3
