@@ -1,4 +1,5 @@
 package br.inatel.almeidafelpo.pokeplace.products.status_healings;
+import br.inatel.almeidafelpo.pokeplace.Trainer.PokeTrainer;
 import br.inatel.almeidafelpo.pokeplace.products.Product;
 
 public abstract class StatusHealing extends Product{
@@ -26,10 +27,6 @@ public abstract class StatusHealing extends Product{
             System.out.println("Neutralized effect: ????????");
             System.out.println("Ammount of badges necessary: " + this.badges);
         }
-    }
-
-    @Override
-    public void addPurchase() {
     }
 
 }

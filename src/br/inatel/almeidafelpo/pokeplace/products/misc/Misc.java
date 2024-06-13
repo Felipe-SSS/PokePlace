@@ -1,5 +1,6 @@
 package br.inatel.almeidafelpo.pokeplace.products.misc;
 
+import br.inatel.almeidafelpo.pokeplace.Trainer.PokeTrainer;
 import br.inatel.almeidafelpo.pokeplace.products.Product;
 
 public abstract class Misc extends Product {
@@ -22,9 +23,5 @@ public abstract class Misc extends Product {
             System.out.println("Price: $ ????");
             System.out.println("Ammount of badges necessary: " + this.badges);
         }
-    }
-
-    @Override
-    public void addPurchase() {
     }
 }

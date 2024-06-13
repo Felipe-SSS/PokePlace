@@ -29,8 +29,4 @@ public class Potion extends Product {
         }
 
     }
-    @Override
-    public void addPurchase() {
-
-    }
 }

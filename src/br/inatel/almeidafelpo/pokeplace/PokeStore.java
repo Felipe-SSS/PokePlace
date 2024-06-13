@@ -9,6 +9,7 @@ import br.inatel.almeidafelpo.pokeplace.products.potions.Potion;
 import br.inatel.almeidafelpo.pokeplace.products.status_healings.StatusHealing;
 
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Scanner;
 
 public class PokeStore implements Interface {
@@ -36,7 +37,7 @@ public class PokeStore implements Interface {
         miscs = ReadFiles.getRegisteredMisc();
     }
 
-    private void awaitPurchase(HashSet<Product> products){
+    private void awaitPurchase(HashSet<Product> products) {
 
         System.out.println();
 
@@ -48,17 +49,37 @@ public class PokeStore implements Interface {
 
         int purchaseOption = input.nextInt() - 1;
 
-        if(purchaseOption == -1){
+        if (purchaseOption == -1) {
 
             colored.colorPrint("CYAN", "BLACK", "Exiting to the PokeStore...");
 
             showCatalogue(client);
+
+            return;
         }
 
-        if (purchaseOption < products.toArray().length && purchaseOption > 0){
+        Iterator<Product> iterator = products.iterator();
 
+        int index = 0;
+
+        while (iterator.hasNext()) {
+            Product product = iterator.next();
+            if (index == purchaseOption) {
+                addPurchase(client, product);
+                colored.colorPrint("CYAN", "BLACK", "Purchase successful!");
+                return;
+            }
+            index++;
         }
 
+        colored.colorPrint("RED", "BLACK", "Invalid purchase option. Please select a valid option from the catalogue.");
+    }
+
+    private void addPurchase(PokeTrainer pokeTrainer, Product product){
+        if (pokeTrainer.getBadges() >= product.getBadges()) {
+            pokeTrainer.insertPurchase(product);
+            System.out.println("Succesfully purchased a " + product.getName() + "!");
+        }
     }
 
     @Override

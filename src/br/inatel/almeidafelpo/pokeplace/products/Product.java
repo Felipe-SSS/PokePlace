@@ -5,7 +5,6 @@ public class Product {
     protected float price;
     protected String description;
     protected int badges;
-    public int clientBadges;
     protected String name;
 
     public Product(float price, String description, int badges, String name) {
@@ -19,7 +18,11 @@ public class Product {
 
     }
 
-    public void addPurchase(){
+    public int getBadges() {
+        return badges;
+    }
 
+    public String getName() {
+        return name;
     }
 }

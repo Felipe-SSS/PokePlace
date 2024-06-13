@@ -25,9 +25,4 @@ public class PokeBall extends Product {
         }
 
     }
-
-    @Override
-    public void addPurchase() {
-
-    }
 }
