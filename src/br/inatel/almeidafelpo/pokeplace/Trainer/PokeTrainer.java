@@ -17,51 +17,47 @@ public class PokeTrainer {
     private String nickname;
     private Float pokecoins;
     private int badges;
-    private PokeBag bag;
+    private static PokeBag bag;
 
     private static Colored colored = new Colored();
     private static Scanner input = new Scanner(System.in);
 
-    public void showPokeBag(){
-
-        colored.colorPrint("YELLOW", "BLACK", "Here's your PokeBag! Select what you'd like to see.");
-
-        System.out.println();
-
-        System.out.println("1 - PokeBalls");
-        System.out.println("2 - Potions");
-        System.out.println("3 - Status Healings");
-        System.out.println("4 - Misc");
-
-    }
-
     public void userInteractions(PokeStore pokeStore){
 
-        if (Main.firstTime){
-            colored.colorPrint("CYAN", "BLACK", "What would you like to see first?");
-            Main.firstTime = false;
-        }
-
-        else{
-            colored.colorPrint("CYAN", "BLACK", "What would you like to see?");
-        }
-
-        System.out.println();
-
-        System.out.println("1 - PokeStore");
-        System.out.println("2 - PokeBag");
-
-        System.out.println();
-
-        System.out.println("0 - End process...");
-
-        System.out.println();
-
-        System.out.print("Option input: ");
-
-        int userInput = input.nextInt();
+        int userInput;
 
         do {
+
+            if (Main.firstTime){
+                System.out.println();
+                colored.colorPrint("GREEN", "===========================================");
+                System.out.println();
+                colored.colorPrint("CYAN", "BLACK", "What would you like to see first?");
+                Main.firstTime = false;
+            }
+
+            else{
+                System.out.println();
+                colored.colorPrint("GREEN", "===========================================");
+                System.out.println();
+                colored.colorPrint("CYAN", "BLACK", "What would you like to see?");
+            }
+
+            System.out.println();
+
+            System.out.println("1 - PokeStore");
+            System.out.println("2 - PokeBag");
+
+            System.out.println();
+
+            System.out.println("0 - End process...");
+
+            System.out.println();
+
+            System.out.print("Option input: ");
+
+            userInput = input.nextInt();
+
             switch (userInput){
 
                 case 0:
@@ -80,14 +76,10 @@ public class PokeTrainer {
 
                     System.out.print("\033[H\033[2J");
                     System.out.flush();
-                    showPokeBag();
+                    bag.viewBag();
                     break;
 
             }
-
-            System.out.print("Option input: ");
-
-            userInput = input.nextInt();
 
         } while (userInput != 0);
 
@@ -97,17 +89,21 @@ public class PokeTrainer {
 
     public void insertPurchase(Product product){
 
-        if(product instanceof PokeBall){
-            bag.pokeBalls.add((PokeBall) product);
-        } else if (product instanceof Potion) {
-            bag.potions.add((Potion) product);
+        Item newItem = new Item(product, 1);
+
+        boolean found = false;
+        for (Item item : bag.items) {
+            if (item.getProduct().getClass() == product.getClass()) {
+                item.setAmount(item.getAmount() + 1);
+                found = true;
+                break;
+            }
         }
-        else if (product instanceof StatusHealing) {
-            bag.statusHealings.add((StatusHealing) product);
+
+        if (!found) {
+            bag.items.add(newItem);
         }
-        else if (product instanceof Misc) {
-            bag.miscs.add((Misc) product);
-        }
+
 
     }
 

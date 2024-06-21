@@ -14,7 +14,7 @@ public class Product {
         this.name = name;
     }
 
-    public void showInfo(int clientBadges, int index){
+    public void showInfo(int clientBadges, int index, boolean pokeBag){
 
     }
 

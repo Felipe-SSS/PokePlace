@@ -68,7 +68,6 @@ public class PokeStore implements Interface {
             Product product = iterator.next();
             if (index == purchaseOption) {
                 addPurchase(client, product);
-                colored.colorPrint("CYAN", "BLACK", "Purchase successful!");
                 return;
             }
             index++;
@@ -81,6 +80,13 @@ public class PokeStore implements Interface {
         if (pokeTrainer.getBadges() >= product.getBadges()) {
             pokeTrainer.insertPurchase(product);
             System.out.println("Succesfully purchased a " + product.getName() + "!");
+            System.out.println();
+            colored.colorPrint("GREEN", "===========================================");
+            System.out.println();
+        }
+        else{
+            System.out.println("Invalid purchase index!");
+            showCatalogue(pokeTrainer);
         }
     }
 
@@ -91,6 +97,8 @@ public class PokeStore implements Interface {
 
         client = pokeTrainer;
 
+        System.out.println();
+        colored.colorPrint("GREEN", "===========================================");
         System.out.println();
         colored.colorPrint("BLACK", "CYAN", "Welcome to the PokeStore!");
         System.out.println();
@@ -137,7 +145,7 @@ public class PokeStore implements Interface {
                 for(PokeBall pokeBall : pokeBalls) {
                     i++;
                     System.out.println();
-                    pokeBall.showInfo(pokeTrainer.getBadges(), i);
+                    pokeBall.showInfo(pokeTrainer.getBadges(), i, false);
 
                     productPokeBalls.add((Product) pokeBall);
 
@@ -158,7 +166,7 @@ public class PokeStore implements Interface {
                 {
                     i++;
                     System.out.println();
-                    potion.showInfo(pokeTrainer.getBadges(), i);
+                    potion.showInfo(pokeTrainer.getBadges(), i, false);
 
                     productPotions.add((Product) potion);
                 }
@@ -178,7 +186,7 @@ public class PokeStore implements Interface {
                 {
                     i++;
                     System.out.println();
-                    statusHealing.showInfo(pokeTrainer.getBadges(), i);
+                    statusHealing.showInfo(pokeTrainer.getBadges(), i, false);
 
                     productStatusHealings.add((Product) statusHealing);
                 }
@@ -198,7 +206,7 @@ public class PokeStore implements Interface {
                 {
                     i++;
                     System.out.println();
-                    misc.showInfo(pokeTrainer.getBadges(), i);
+                    misc.showInfo(pokeTrainer.getBadges(), i, false);
                     productMiscs.add((Product) misc);
                 }
 

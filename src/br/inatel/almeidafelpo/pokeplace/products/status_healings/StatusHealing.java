@@ -1,5 +1,4 @@
 package br.inatel.almeidafelpo.pokeplace.products.status_healings;
-import br.inatel.almeidafelpo.pokeplace.Trainer.PokeTrainer;
 import br.inatel.almeidafelpo.pokeplace.products.Product;
 
 public abstract class StatusHealing extends Product{
@@ -12,21 +11,30 @@ public abstract class StatusHealing extends Product{
     }
 
     @Override
-    public void showInfo(int clientBadges, int index) {
-        if ((clientBadges >=this.badges) && (clientBadges <= 8))
-        {
-            System.out.println(index + " - " + this.name);
+    public void showInfo(int clientBadges, int index, boolean pokeBag) {
+
+        if (pokeBag){
+            System.out.println(index + " - " +  this.name);
             System.out.println(this.description);
-            System.out.println("Price: $ " + this.price);
             System.out.println("Neutralized effect: " + this.target_status);
         }
         else{
-            System.out.println(index + " - NOT ENOUGH BADGES YET!");
-            System.out.println("??????????");
-            System.out.println("Price: $ ????");
-            System.out.println("Neutralized effect: ????????");
-            System.out.println("Ammount of badges necessary: " + this.badges);
+            if ((clientBadges >=this.badges) && (clientBadges <= 8))
+            {
+                System.out.println(index + " - " +  this.name);
+                System.out.println(this.description);
+                System.out.println("Price: $ " + this.price);
+                System.out.println("Neutralized effect: " + this.target_status);
+            }
+            else{
+                System.out.println(index + " - NOT ENOUGH BADGES YET!");
+                System.out.println("??????????");
+                System.out.println("Price: $ ????");
+                System.out.println("Heal Amount: ?????");
+                System.out.println("Ammount of badges necessary: " + this.badges);
+            }
         }
+
     }
 
 }
