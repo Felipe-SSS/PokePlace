@@ -1,5 +1,7 @@
-package br.inatel.almeidafelpo.pokeplace;
+package br.inatel.almeidafelpo.pokeplace.store;
 
+import br.inatel.almeidafelpo.pokeplace.Interface;
+import br.inatel.almeidafelpo.pokeplace.aux.ReadFiles;
 import br.inatel.almeidafelpo.pokeplace.Trainer.PokeTrainer;
 import br.inatel.almeidafelpo.pokeplace.colored.Colored;
 import br.inatel.almeidafelpo.pokeplace.products.Product;
@@ -120,8 +122,10 @@ public class PokeStore implements Interface {
         {
             case 0:
 
-                System.out.println();
                 colored.colorPrint("BLACK", "CYAN", "Come back anytime! (´･ᴗ･`) ");
+
+                pokeTrainer.userInteractions(this);
+
                 return;
 
             case 1:

@@ -1,11 +1,13 @@
 package br.inatel.almeidafelpo.pokeplace.Trainer;
 
+import br.inatel.almeidafelpo.pokeplace.Main;
 import br.inatel.almeidafelpo.pokeplace.colored.Colored;
 import br.inatel.almeidafelpo.pokeplace.products.Product;
 import br.inatel.almeidafelpo.pokeplace.products.misc.Misc;
 import br.inatel.almeidafelpo.pokeplace.products.pokeballs.PokeBall;
 import br.inatel.almeidafelpo.pokeplace.products.potions.Potion;
 import br.inatel.almeidafelpo.pokeplace.products.status_healings.StatusHealing;
+import br.inatel.almeidafelpo.pokeplace.store.PokeStore;
 
 import java.util.Scanner;
 
@@ -17,9 +19,11 @@ public class PokeTrainer {
     private int badges;
     private PokeBag bag;
 
-    private Colored colored = new Colored();
+    private static Colored colored = new Colored();
+    private static Scanner input = new Scanner(System.in);
 
     public void showPokeBag(){
+
         colored.colorPrint("YELLOW", "BLACK", "Here's your PokeBag! Select what you'd like to see.");
 
         System.out.println();
@@ -28,6 +32,66 @@ public class PokeTrainer {
         System.out.println("2 - Potions");
         System.out.println("3 - Status Healings");
         System.out.println("4 - Misc");
+
+    }
+
+    public void userInteractions(PokeStore pokeStore){
+
+        if (Main.firstTime){
+            colored.colorPrint("CYAN", "BLACK", "What would you like to see first?");
+            Main.firstTime = false;
+        }
+
+        else{
+            colored.colorPrint("CYAN", "BLACK", "What would you like to see?");
+        }
+
+        System.out.println();
+
+        System.out.println("1 - PokeStore");
+        System.out.println("2 - PokeBag");
+
+        System.out.println();
+
+        System.out.println("0 - End process...");
+
+        System.out.println();
+
+        System.out.print("Option input: ");
+
+        int userInput = input.nextInt();
+
+        do {
+            switch (userInput){
+
+                case 0:
+                    System.out.println();
+                    colored.colorPrint("RED", "BLACK", "Come back anytime!");
+                    return;
+
+                case 1:
+
+                    System.out.print("\033[H\033[2J");
+                    System.out.flush();
+                    pokeStore.showCatalogue(this);
+                    break;
+
+                case 2:
+
+                    System.out.print("\033[H\033[2J");
+                    System.out.flush();
+                    showPokeBag();
+                    break;
+
+            }
+
+            System.out.print("Option input: ");
+
+            userInput = input.nextInt();
+
+        } while (userInput != 0);
+
+
 
     }
 

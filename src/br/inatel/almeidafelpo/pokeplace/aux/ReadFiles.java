@@ -1,4 +1,4 @@
-package br.inatel.almeidafelpo.pokeplace;
+package br.inatel.almeidafelpo.pokeplace.aux;
 
 import br.inatel.almeidafelpo.pokeplace.products.misc.MaxRevive;
 import br.inatel.almeidafelpo.pokeplace.products.misc.Misc;
