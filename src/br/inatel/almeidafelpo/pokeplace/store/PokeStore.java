@@ -1,7 +1,7 @@
 package br.inatel.almeidafelpo.pokeplace.store;
 
 import br.inatel.almeidafelpo.pokeplace.Interface;
-import br.inatel.almeidafelpo.pokeplace.aux.ReadFiles;
+import br.inatel.almeidafelpo.pokeplace.others.ReadFiles;
 import br.inatel.almeidafelpo.pokeplace.Trainer.PokeTrainer;
 import br.inatel.almeidafelpo.pokeplace.colored.Colored;
 import br.inatel.almeidafelpo.pokeplace.products.Product;
