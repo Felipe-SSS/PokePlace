@@ -3,10 +3,6 @@ package br.inatel.almeidafelpo.pokeplace.Trainer;
 import br.inatel.almeidafelpo.pokeplace.Main;
 import br.inatel.almeidafelpo.pokeplace.colored.Colored;
 import br.inatel.almeidafelpo.pokeplace.products.Product;
-import br.inatel.almeidafelpo.pokeplace.products.misc.Misc;
-import br.inatel.almeidafelpo.pokeplace.products.pokeballs.PokeBall;
-import br.inatel.almeidafelpo.pokeplace.products.potions.Potion;
-import br.inatel.almeidafelpo.pokeplace.products.status_healings.StatusHealing;
 import br.inatel.almeidafelpo.pokeplace.store.PokeStore;
 
 import java.util.Scanner;
@@ -76,7 +72,7 @@ public class PokeTrainer {
 
                     System.out.print("\033[H\033[2J");
                     System.out.flush();
-                    bag.viewBag();
+                    bag.viewBag(false);
                     break;
 
             }

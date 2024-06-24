@@ -10,6 +10,7 @@ import br.inatel.almeidafelpo.pokeplace.products.pokeballs.PokeBall;
 import br.inatel.almeidafelpo.pokeplace.products.potions.Potion;
 import br.inatel.almeidafelpo.pokeplace.products.status_healings.StatusHealing;
 
+import java.io.Serial;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Scanner;
@@ -79,10 +80,10 @@ public class PokeStore implements Interface {
     private void addPurchase(PokeTrainer pokeTrainer, Product product){
         if (pokeTrainer.getBadges() >= product.getBadges()) {
             pokeTrainer.insertPurchase(product);
-            System.out.println("Succesfully purchased a " + product.getName() + "!");
             System.out.println();
             colored.colorPrint("GREEN", "===========================================");
             System.out.println();
+            System.out.println("Succesfully purchased a " + product.getName() + "!");
         }
         else{
             System.out.println("Invalid purchase index!");

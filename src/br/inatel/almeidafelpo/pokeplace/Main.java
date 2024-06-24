@@ -5,15 +5,11 @@ import br.inatel.almeidafelpo.pokeplace.Trainer.PokeTrainer;
 import br.inatel.almeidafelpo.pokeplace.colored.Colored;
 import br.inatel.almeidafelpo.pokeplace.store.PokeStore;
 
-import java.util.Scanner;
-
 public class Main {
 
     public static boolean firstTime;
 
     private static Colored colored = new Colored();
-
-    private static Scanner input = new Scanner(System.in);
 
     public static void main(String [] args){
 

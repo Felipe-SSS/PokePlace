@@ -17,16 +17,25 @@ public class PokeBag {
 
     public HashSet<Item> items = new HashSet<>();
 
-    public void viewBag(){
+    public void viewBag(boolean repeat){
 
-        System.out.println();
-        colored.colorPrint("GREEN", "===========================================");
-        System.out.println();
-        colored.colorPrint("BLACK", "CYAN", "Welcome to your PokeBag!");
-        System.out.println();
-        colored.colorPrint("GREEN", "===========================================");
-        System.out.println();
-        colored.colorPrint("CYAN", "BLACK", "What would you like to see?");
+        if (!repeat){
+            System.out.println();
+            colored.colorPrint("GREEN", "===========================================");
+            System.out.println();
+            colored.colorPrint("BLACK", "CYAN", "Welcome to your PokeBag!");
+            System.out.println();
+            colored.colorPrint("GREEN", "===========================================");
+            System.out.println();
+            colored.colorPrint("CYAN", "BLACK", "What would you like to see?");
+        }
+        else{
+            System.out.println();
+            colored.colorPrint("GREEN", "===========================================");
+            System.out.println();
+            colored.colorPrint("CYAN", "BLACK", "What would you like to see?");
+        }
+
 
         System.out.println();
 
@@ -45,6 +54,7 @@ public class PokeBag {
 
         int userInput = input.nextInt();
 
+        System.out.println();
 
         int i = 0;
 
@@ -125,6 +135,8 @@ public class PokeBag {
 
                 break;
         }
+
+        viewBag(true);
 
     }
 

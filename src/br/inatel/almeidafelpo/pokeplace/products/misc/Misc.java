@@ -1,6 +1,5 @@
 package br.inatel.almeidafelpo.pokeplace.products.misc;
 
-import br.inatel.almeidafelpo.pokeplace.Trainer.PokeTrainer;
 import br.inatel.almeidafelpo.pokeplace.products.Product;
 
 public abstract class Misc extends Product {
