@@ -7,6 +7,7 @@ import br.inatel.almeidafelpo.pokeplace.products.potions.Potion;
 import br.inatel.almeidafelpo.pokeplace.products.status_healings.StatusHealing;
 
 import java.util.HashSet;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class PokeBag {
@@ -51,93 +52,95 @@ public class PokeBag {
         System.out.println();
 
         System.out.print("Option input: ");
+        try {
+            int userInput = input.nextInt();
 
-        int userInput = input.nextInt();
+            System.out.println();
 
-        System.out.println();
+            int i = 0;
 
-        int i = 0;
+            switch (userInput)
+            {
+                case 0:
 
-        switch (userInput)
-        {
-            case 0:
+                    colored.colorPrint("BLACK", "CYAN", "Come back anytime! (´･ᴗ･`) ");
 
-                colored.colorPrint("BLACK", "CYAN", "Come back anytime! (´･ᴗ･`) ");
+                    return;
 
-                return;
+                case 1:
 
-            case 1:
+                    i = 1;
 
-                i = 1;
+                    colored.colorPrint("CYAN", "BLACK", "Here are your PokeBalls!");
+                    System.out.println();
 
-                colored.colorPrint("CYAN", "BLACK", "Here are your PokeBalls!");
-                System.out.println();
-
-                for (Item item : items){
-                    if (item.getProduct() instanceof PokeBall){
-                        item.getProduct().showInfo(8, i, true);
-                        System.out.println("Amount owned: " + item.getAmount());
-                        i++;
+                    for (Item item : items){
+                        if (item.getProduct() instanceof PokeBall){
+                            item.getProduct().showInfo(8, i, true);
+                            System.out.println("Amount owned: " + item.getAmount());
+                            i++;
+                        }
                     }
-                }
 
 
-                break;
+                    break;
 
-            case 2:
+                case 2:
 
-                i = 1;
+                    i = 1;
 
-                colored.colorPrint("CYAN", "BLACK", "Here are your Potions!");
-                System.out.println();
+                    colored.colorPrint("CYAN", "BLACK", "Here are your Potions!");
+                    System.out.println();
 
-                for (Item item : items){
-                    if (item.getProduct() instanceof Potion){
-                        item.getProduct().showInfo(8, i, true);
-                        System.out.println("Amount owned: " + item.getAmount());
-                        i++;
+                    for (Item item : items){
+                        if (item.getProduct() instanceof Potion){
+                            item.getProduct().showInfo(8, i, true);
+                            System.out.println("Amount owned: " + item.getAmount());
+                            i++;
+                        }
                     }
-                }
 
-                break;
+                    break;
 
-            case 3:
+                case 3:
 
-                i = 1;
+                    i = 1;
 
-                colored.colorPrint("CYAN", "BLACK", "Here are your Status Healings!");
-                System.out.println();
+                    colored.colorPrint("CYAN", "BLACK", "Here are your Status Healings!");
+                    System.out.println();
 
-                for (Item item : items){
-                    if (item.getProduct() instanceof StatusHealing){
-                        item.getProduct().showInfo(8, i, true);
-                        System.out.println("Amount owned: " + item.getAmount());
-                        i++;
+                    for (Item item : items){
+                        if (item.getProduct() instanceof StatusHealing){
+                            item.getProduct().showInfo(8, i, true);
+                            System.out.println("Amount owned: " + item.getAmount());
+                            i++;
+                        }
                     }
-                }
 
-                break;
+                    break;
 
-            case 4:
+                case 4:
 
-                i = 1;
+                    i = 1;
 
-                colored.colorPrint("CYAN", "BLACK", "Here are your misc items!");
-                System.out.println();
+                    colored.colorPrint("CYAN", "BLACK", "Here are your misc items!");
+                    System.out.println();
 
-                for (Item item : items){
-                    if (item.getProduct() instanceof Misc){
-                        item.getProduct().showInfo(8, i, true);
-                        System.out.println("Amount owned: " + item.getAmount());
-                        i++;
+                    for (Item item : items){
+                        if (item.getProduct() instanceof Misc){
+                            item.getProduct().showInfo(8, i, true);
+                            System.out.println("Amount owned: " + item.getAmount());
+                            i++;
+                        }
                     }
-                }
 
-                break;
+                    break;
+            }
+
+            viewBag(true);
+        } catch (InputMismatchException e) {
+            System.out.println("Invalid value");
+            input.next();
         }
-
-        viewBag(true);
-
     }
-
 }

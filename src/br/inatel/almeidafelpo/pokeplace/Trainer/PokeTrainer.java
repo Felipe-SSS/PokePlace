@@ -5,6 +5,7 @@ import br.inatel.almeidafelpo.pokeplace.colored.Colored;
 import br.inatel.almeidafelpo.pokeplace.products.Product;
 import br.inatel.almeidafelpo.pokeplace.store.PokeStore;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class PokeTrainer {
@@ -18,9 +19,9 @@ public class PokeTrainer {
     private static Colored colored = new Colored();
     private static Scanner input = new Scanner(System.in);
 
-    public void userInteractions(PokeStore pokeStore){
+    private int userInput = 1;
 
-        int userInput;
+    public void userInteractions(PokeStore pokeStore){
 
         do {
 
@@ -51,36 +52,38 @@ public class PokeTrainer {
             System.out.println();
 
             System.out.print("Option input: ");
+            try {
+                userInput = input.nextInt();
 
-            userInput = input.nextInt();
+                switch (userInput){
 
-            switch (userInput){
+                    case 0:
+                        System.out.println();
+                        colored.colorPrint("RED", "BLACK", "Come back anytime!");
+                        return;
 
-                case 0:
-                    System.out.println();
-                    colored.colorPrint("RED", "BLACK", "Come back anytime!");
-                    return;
+                    case 1:
 
-                case 1:
+                        System.out.print("\033[H\033[2J");
+                        System.out.flush();
+                        pokeStore.showCatalogue(this);
+                        break;
 
-                    System.out.print("\033[H\033[2J");
-                    System.out.flush();
-                    pokeStore.showCatalogue(this);
-                    break;
+                    case 2:
 
-                case 2:
+                        System.out.print("\033[H\033[2J");
+                        System.out.flush();
+                        bag.viewBag(false);
+                        break;
 
-                    System.out.print("\033[H\033[2J");
-                    System.out.flush();
-                    bag.viewBag(false);
-                    break;
-
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid value");
+                input.next();
             }
 
+
         } while (userInput != 0);
-
-
-
     }
 
     public void insertPurchase(Product product){
@@ -113,7 +116,21 @@ public class PokeTrainer {
 
         System.out.print("Badges ammount: ");
 
-        setBadges(input.nextInt());
+        int badges_input;
+
+
+        try {
+            badges_input = input.nextInt();
+            if(badges_input >= 0 && badges_input <= 8)
+                this.setBadges(badges_input);
+            else{
+                System.out.println("Invalid number");
+                this.badges();
+            }
+        } catch (InputMismatchException e) {
+            System.out.println("Invalid value");
+            this.badges();
+        }
 
     }
 

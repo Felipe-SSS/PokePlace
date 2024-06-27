@@ -27,10 +27,10 @@ public class PokeStore implements Interface {
     private static HashSet<StatusHealing> statusHealings = new HashSet<>();
     private static HashSet<Misc> miscs = new HashSet<>();
 
-    private static HashSet<Product> productPokeBalls = new HashSet<>();
-    private static HashSet<Product> productPotions= new HashSet<>();
-    private static HashSet<Product> productStatusHealings = new HashSet<>();
-    private static HashSet<Product> productMiscs = new HashSet<>();
+    private static final HashSet<Product> productPokeBalls = new HashSet<>();
+    private static final HashSet<Product> productPotions= new HashSet<>();
+    private static final HashSet<Product> productStatusHealings = new HashSet<>();
+    private static final HashSet<Product> productMiscs = new HashSet<>();
 
 
     public void refreshStore(){
@@ -213,6 +213,9 @@ public class PokeStore implements Interface {
 
                 awaitPurchase(productMiscs);
 
+                break;
+            default:
+                System.out.println("Invalid value");
                 break;
         }
 
