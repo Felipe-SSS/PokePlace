@@ -12,6 +12,7 @@ import br.inatel.almeidafelpo.pokeplace.products.status_healings.StatusHealing;
 
 import java.io.Serial;
 import java.util.HashSet;
+import java.util.InputMismatchException;
 import java.util.Iterator;
 import java.util.Scanner;
 
@@ -50,31 +51,38 @@ public class PokeStore implements Interface {
 
         System.out.print("Purchase option: ");
 
-        int purchaseOption = input.nextInt() - 1;
+        try {
+            int purchaseOption = input.nextInt() - 1;
 
-        if (purchaseOption == -1) {
+            if (purchaseOption == -1) {
 
-            colored.colorPrint("CYAN", "BLACK", "Exiting to the PokeStore...");
+                colored.colorPrint("CYAN", "BLACK", "Exiting to the PokeStore...");
 
-            showCatalogue(client);
+                showCatalogue(client);
 
-            return;
-        }
-
-        Iterator<Product> iterator = products.iterator();
-
-        int index = 0;
-
-        while (iterator.hasNext()) {
-            Product product = iterator.next();
-            if (index == purchaseOption) {
-                addPurchase(client, product);
                 return;
             }
-            index++;
+
+            Iterator<Product> iterator = products.iterator();
+
+            int index = 0;
+
+            while (iterator.hasNext()) {
+                Product product = iterator.next();
+                if (index == purchaseOption) {
+                    addPurchase(client, product);
+                    return;
+                }
+                index++;
+            }
+
+            colored.colorPrint("RED", "BLACK", "Invalid purchase option. Please select a valid option from the catalogue.");
+        } catch (InputMismatchException e) {
+            System.out.println("Invalid value");
+            input.next();
         }
 
-        colored.colorPrint("RED", "BLACK", "Invalid purchase option. Please select a valid option from the catalogue.");
+
     }
 
     private void addPurchase(PokeTrainer pokeTrainer, Product product){
@@ -121,102 +129,105 @@ public class PokeStore implements Interface {
 
         System.out.print("Option input: ");
 
-        int answer = input.nextInt();
+        try {
+            int answer = input.nextInt();
 
-        System.out.println();
+            System.out.println();
 
-        int i;
+            int i;
 
-        switch (answer)
-        {
-            case 0:
+            switch (answer)
+            {
+                case 0:
 
-                colored.colorPrint("BLACK", "CYAN", "Come back anytime! (´･ᴗ･`) ");
+                    colored.colorPrint("BLACK", "CYAN", "Come back anytime! (´･ᴗ･`) ");
 
-                pokeTrainer.userInteractions(this);
+                    pokeTrainer.userInteractions(this);
 
-                return;
+                    return;
 
-            case 1:
+                case 1:
 
-                i = 0;
+                    i = 0;
 
-                colored.colorPrint("RED", "BLACK", "These are the PokeBalls we have for you:");
+                    colored.colorPrint("RED", "BLACK", "These are the PokeBalls we have for you:");
 
-                for(PokeBall pokeBall : pokeBalls) {
-                    i++;
+                    for(PokeBall pokeBall : pokeBalls) {
+                        i++;
+                        System.out.println();
+                        pokeBall.showInfo(pokeTrainer.getBadges(), i, false);
+
+                        productPokeBalls.add((Product) pokeBall);
+
+                    }
+
+                    awaitPurchase(productPokeBalls);
+
+                    break;
+
+                case 2:
+
+                    i = 0;
+
+                    colored.colorPrint("RED", "BLACK", "These are the Potions we have for you:");
                     System.out.println();
-                    pokeBall.showInfo(pokeTrainer.getBadges(), i, false);
 
-                    productPokeBalls.add((Product) pokeBall);
+                    for(Potion potion : potions)
+                    {
+                        i++;
+                        System.out.println();
+                        potion.showInfo(pokeTrainer.getBadges(), i, false);
 
-                }
+                        productPotions.add((Product) potion);
+                    }
 
-                awaitPurchase(productPokeBalls);
+                    awaitPurchase(productPotions);
 
-                break;
+                    break;
 
-            case 2:
+                case 3:
 
-                i = 0;
+                    i = 0;
 
-                colored.colorPrint("RED", "BLACK", "These are the Potions we have for you:");
-                System.out.println();
-
-                for(Potion potion : potions)
-                {
-                    i++;
+                    colored.colorPrint("RED", "BLACK", "These are the Status Healings we have for you:");
                     System.out.println();
-                    potion.showInfo(pokeTrainer.getBadges(), i, false);
 
-                    productPotions.add((Product) potion);
-                }
+                    for (StatusHealing statusHealing : statusHealings)
+                    {
+                        i++;
+                        System.out.println();
+                        statusHealing.showInfo(pokeTrainer.getBadges(), i, false);
 
-                awaitPurchase(productPotions);
+                        productStatusHealings.add((Product) statusHealing);
+                    }
 
-                break;
+                    awaitPurchase(productStatusHealings);
 
-            case 3:
+                    break;
 
-                i = 0;
+                case 4:
 
-                colored.colorPrint("RED", "BLACK", "These are the Status Healings we have for you:");
-                System.out.println();
+                    i = 0;
 
-                for (StatusHealing statusHealing : statusHealings)
-                {
-                    i++;
+                    colored.colorPrint("RED", "BLACK", "These are some other options we have for you:");
                     System.out.println();
-                    statusHealing.showInfo(pokeTrainer.getBadges(), i, false);
 
-                    productStatusHealings.add((Product) statusHealing);
-                }
+                    for (Misc misc : miscs)
+                    {
+                        i++;
+                        System.out.println();
+                        misc.showInfo(pokeTrainer.getBadges(), i, false);
+                        productMiscs.add((Product) misc);
+                    }
 
-                awaitPurchase(productStatusHealings);
+                    awaitPurchase(productMiscs);
 
-                break;
+                    break;
+            }
 
-            case 4:
-
-                i = 0;
-
-                colored.colorPrint("RED", "BLACK", "These are some other options we have for you:");
-                System.out.println();
-
-                for (Misc misc : miscs)
-                {
-                    i++;
-                    System.out.println();
-                    misc.showInfo(pokeTrainer.getBadges(), i, false);
-                    productMiscs.add((Product) misc);
-                }
-
-                awaitPurchase(productMiscs);
-
-                break;
-            default:
-                System.out.println("Invalid value");
-                break;
+        } catch (InputMismatchException e) {
+            System.out.println("Invalid value");
+            input.next();
         }
 
     }
