@@ -10,7 +10,6 @@ import br.inatel.almeidafelpo.pokeplace.products.pokeballs.PokeBall;
 import br.inatel.almeidafelpo.pokeplace.products.potions.Potion;
 import br.inatel.almeidafelpo.pokeplace.products.status_healings.StatusHealing;
 
-import java.io.Serial;
 import java.util.HashSet;
 import java.util.InputMismatchException;
 import java.util.Iterator;
